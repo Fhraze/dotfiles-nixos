@@ -67,7 +67,7 @@
   # OpenDoas
   security.doas = {
     enable = true;
-    extraConfig = "permit persist setenv {PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin} :wheel"
+    extraConfig = "permit persist setenv {PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin} :wheel\n"
   };
 
   # Home Manager
