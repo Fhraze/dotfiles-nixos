@@ -52,22 +52,30 @@
   # Console keymap
   console.keyMap = "br-abnt2";
 
+  # Session variables
+  environment.sessionVariables = {
+    WLR_NO_HARDWARE_CURSORS = "1"; # if your cursor becomes invisible
+    NIXOS_OZONE_WL = "1"; # hint electron apps to use wayland
+  };
+
+  # Desktop portals
+  xdg.portal.enable = true;
+  xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+
   # User account
   users.users.fhraze = {
     isNormalUser = true;
     description = "Fhraze";
     extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [
-      vscodium
-      gh
-      ungoogled-chromium
-    ];
+    packages = with pkgs; [];
   };
+  programs.nano.enable = false;
 
   # OpenDoas
   security.doas = {
     enable = true;
-    extraConfig = "permit persist setenv {PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin} :wheel\npermit persist setenv { XAUTHORITY LANG LC_ALL } :wheel"
+    extraConfig = "permit persist setenv {PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin} :wheel\n" +
+                  "permit persist setenv { XAUTHORITY LANG LC_ALL } :wheel";
   };
 
   # Home Manager
@@ -92,7 +100,7 @@
     # linuxKernel.packages.linux_xanmod_latest.vmware # VMWare Kernel Modules
     wget
     git
-    connman
+    htop
   ];
 
   # NeoVim
@@ -115,6 +123,7 @@
     pulse.enable = true;
     alsa.enable = true;
     alsa.support32Bit = true;
+    jack.enable = true;
   };
 
   # Other options
@@ -130,6 +139,6 @@
   # networking.firewall.enable = false;
 
   # man configuration.nix or on https://nixos.org/nixos/options.html for more options
-  system.stateVersion = "23.11"; # Did you read the comment?
+  system.stateVersion = "23.11";
 
 }
