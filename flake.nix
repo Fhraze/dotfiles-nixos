@@ -10,7 +10,7 @@
     split-monitor-workspaces.inputs.hyprland.follows = "hyprland";
   };
 
-  outputs = { self, nixpkgs, home-manager, split-monitor-workspaces, ...}@inputs:
+  outputs = { self, nixpkgs, home-manager, split-monitor-workspaces, ...}:
   let
     lib = nixpkgs.lib;
     system = "x86_64-linux";
@@ -21,7 +21,6 @@
         inherit system;
 	modules = [
           ./configuration.nix
-	  inputs.home-manager.nixosModules.default
 	];
       };
     };

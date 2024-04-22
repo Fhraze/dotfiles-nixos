@@ -4,7 +4,7 @@
   home.packages = [ pkgs.fd ];
 
   # Z Shell
-  users.users.fhraze.shell = pkgs.zsh
+  users.users.fhraze.shell = pkgs.zsh;
 
   programs.zsh = {
     enable = true;
