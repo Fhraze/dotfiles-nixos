@@ -1,19 +1,16 @@
-{ config, pkgs, inputs, ... }:
+{ config, pkgs, ... }:
 
 {
   imports =
-    [ # Include the results of the hardware scan.
+    [
+      # << Hardware Configuration >>
       ./hardware-configuration.nix
-      inputs.home-manager.nixosModules.default
     ];
 
   # Bootloader.
   boot.loader.grub.enable = true;
   boot.loader.grub.device = "/dev/sda";
   boot.loader.grub.useOSProber = true;
-
-  networking.hostName = "nixos"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Experimental features
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
@@ -23,7 +20,13 @@
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   # Enable networking
-  networking.networkmanager.enable = true;
+  networking.hostName = "nixos"; # Define your hostname.
+  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+  networking.networkmanager.enable = false;
+  services.connman = {
+    enable = true;
+    #extraConfig = "";
+  };
 
   # Time zone.
   time.timeZone = "America/Sao_Paulo";
@@ -43,24 +46,8 @@
     LC_TIME = "pt_BR.UTF-8";
   };
 
-  # Keymap in X11
-  services.xserver = {
-    xkb.layout = "br";
-    xkb.variant = "";
-  };
-
   # Console keymap
-  console.keyMap = "br-abnt2";
-
-  # Session variables
-  environment.sessionVariables = {
-    WLR_NO_HARDWARE_CURSORS = "1"; # if your cursor becomes invisible
-    NIXOS_OZONE_WL = "1"; # hint electron apps to use wayland
-  };
-
-  # Desktop portals
-  xdg.portal.enable = true;
-  xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+  console.keyMap = "us";
 
   # User account
   users.users.fhraze = {
@@ -68,22 +55,6 @@
     description = "Fhraze";
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [];
-  };
-  programs.nano.enable = false;
-
-  # OpenDoas
-  security.doas = {
-    enable = true;
-    extraConfig = "permit persist setenv {PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin} :wheel\n" +
-                  "permit persist setenv { XAUTHORITY LANG LC_ALL } :wheel";
-  };
-
-  # Home Manager
-  home-manager = {
-    extraSpecialArgs = { inherit inputs; };
-    users = {
-      "fhraze" = import ./home.nix;
-    };
   };
 
   # Allow unfree packages
@@ -100,21 +71,10 @@
     # linuxKernel.packages.linux_xanmod_latest.vmware # VMWare Kernel Modules
     wget
     git
-    htop
   ];
 
-  # NeoVim
-  programs.neovim = {
-    enable = true;
-    defaultEditor = true;
-    withRuby = true;
-    withPython3 = true;
-    withNodeJs = true;
-    vimAlias = true;
-    viAlias = true;
-  };
-
   # System sound
+  hardware.pulseaudio.enable = false;
   sound.enable = true;
   services.pipewire = {
     enable = true;
@@ -125,12 +85,6 @@
     alsa.support32Bit = true;
     jack.enable = true;
   };
-
-  # Other options
-  virtualisation.waydroid.enable = true;
-
-  # Enable the OpenSSH daemon.
-  services.openssh.enable = true;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
