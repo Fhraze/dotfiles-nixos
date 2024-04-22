@@ -23,9 +23,9 @@
 	id = "ocaahdebbfolfmndjeplogmgcagdmblk";
 	updateUrl = "https://raw.githubusercontent.com/NeverDecaf/chromium-web-store/master/updates.xml";
       }
-      { id = "nblkbiljcjfemkfjnhoobnojjgjdmknf" } #PronounDB
-      { id = "hlkenndednhfkekhgcdicdfddnkalmdm" } #Cookie-Editor
-      { id = "doojmbjmlfjjnbmnoijecmcbfeoakpjm" } #NoScript
+      { id = "nblkbiljcjfemkfjnhoobnojjgjdmknf"; } #PronounDB
+      { id = "hlkenndednhfkekhgcdicdfddnkalmdm"; } #Cookie-Editor
+      { id = "doojmbjmlfjjnbmnoijecmcbfeoakpjm"; } #NoScript
     ];
   };
 }

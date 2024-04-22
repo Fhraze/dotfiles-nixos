@@ -2,7 +2,6 @@
 
 {
   home.sessionVariables.EDITOR = "nvim";
-  programs.nano.enable = false;
 
   programs.neovim = {
     enable = true;

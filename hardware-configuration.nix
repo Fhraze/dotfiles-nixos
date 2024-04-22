@@ -9,7 +9,10 @@
     ];
 
   boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "usb_storage" "usbhid" "sd_mod" ];
-  boot.initrd.kernelModules = [ ];
+  boot.initrd.kernelModules = [
+    # << AMD >>
+    "amdgpu"
+  ];
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
 
@@ -29,4 +32,17 @@
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+  # << OpenGL >>
+  hardware.opengl = {
+    extraPackages = with pkgs; [
+      rocmPackages.clr.icd # OpenCL
+      amdvlk # AMD VLK
+    ];
+    extraPackages32 = with pkgs; [
+      driversi686Linux.amdvlk # AMD VLK 32bit
+    ];
+    # << Vulkan >>
+    driSupport = true;
+    driSupport32Bit = true;
+  };
 }

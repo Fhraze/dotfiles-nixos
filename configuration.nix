@@ -46,6 +46,12 @@
     LC_TIME = "pt_BR.UTF-8";
   };
 
+  # X keymap
+  services.xserver.xkb = {
+    layout = "br";
+    variant = "";
+  };
+
   # Console keymap
   console.keyMap = "us";
 
@@ -84,6 +90,13 @@
     alsa.enable = true;
     alsa.support32Bit = true;
     jack.enable = true;
+  };
+
+  # << OpenDoas >>
+  security.doas = {
+    enable = true;
+    extraConfig = "permit persist setenv {PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin} :wheel\n" +
+                  "permit persist setenv { XAUTHORITY LANG LC_ALL } :wheel";
   };
 
   # Open ports in the firewall.

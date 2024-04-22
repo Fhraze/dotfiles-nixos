@@ -2,10 +2,19 @@
 
 {
   # << Packages >>
-  home.packages = {
+  home.packages = [
     pkgs.swaybg
     pkgs.wofi-emoji
-  };
+    pkgs.hyprland
+    pkgs.wlroots
+    pkgs.wl-clipboard
+    pkgs.wf-recorder
+    pkgs.grim
+    pkgs.slurp
+    pkgs.hyprnome
+    pkgs.xwayland
+    pkgs.xwaylandvideobridge
+  ];
 
   # Home variables
   home.sessionVariables = {
@@ -23,21 +32,14 @@
   };
 
   # << Hyprland >>
-  wayland.windowManager.hyprland = {
-    enable = true;
-    xwayland.enable = true;
-    # nvidiaPatches = true;
-  };
-  home.file = {
-    ".config/hypr/hyprland.conf".source = ./hyprland/hyprland.conf;
-    ".config/hypr/execs.conf".source = ./hyprland/execs.conf;
-    ".config/hypr/env.conf".source = ./hyprland/env.conf;
-    ".config/hypr/keybinds.conf".source = ./hyprland/keybinds.conf;
-    ".config/hypr/print.sh".source = ./hyprland/print.sh;
-    ".config/hypr/record-script.sh".source = ./hyprland/record-script.sh;
-    ".config/hypr/kblayout-switcher.sh".source = ./hyprland/kblayout-switcher.sh;
-    ".config/hypr/wallpapers/OuterWildsUW.jpg".source = ./hyprland/wallpapers/OuterWildsUW.jpg;
-    ".config/hypr/wallpapers/OuterWildsEye.jpg".source = ./hyprland/wallpapers/OuterWildsEye.jpg;
+  #wayland.windowManager.hyprland = {
+  #  enable = true;
+  #  xwayland.enable = true;
+  #  # nvidiaPatches = true;
+  #};
+  home.file.".config/hypr/" = {
+    source = ./hyprland;
+    recursive = true;
   };
 
   # << XDG portals >>
@@ -54,9 +56,6 @@
     };
     extraPortals = with pkgs; [ xdg-desktop-portal-gtk ];
   };
-
-  # << Gnome keyring >>
-  services.gnome.gnome-keyring.enable = true;
 
   # << Wofi >>
   programs.wofi = {

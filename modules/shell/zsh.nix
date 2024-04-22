@@ -4,8 +4,6 @@
   home.packages = [ pkgs.fd ];
 
   # Z Shell
-  users.users.fhraze.shell = pkgs.zsh;
-
   programs.zsh = {
     enable = true;
     autosuggestion.enable = true;

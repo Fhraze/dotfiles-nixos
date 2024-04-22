@@ -10,11 +10,7 @@
       # << Services >>
       ./modules/service/dunst.nix
       #./modules/service/openssh.nix
-      ./modules/service/rtorrent.nix
-      ./modules/services/syncthing.nix
-
-      # << Virtual Machine Software >>
-      ./modules/vm/waydroid.nix
+      ./modules/service/syncthing.nix
 
       # << Window Managers >>
       ./modules/wm/hyprland.nix
@@ -24,12 +20,9 @@
 
       # << Other Software >>
       ./modules/neovim.nix
-      ./modules/opendoas.nix
       ./modules/ungoogled-chromium.nix
       ./modules/vscodium.nix
-      ./modules/steam.nix
       ./modules/obs-studio.nix
-      ./modules/thunar.nix
       ./modules/alacritty.nix
       ./modules/htop.nix
     ];
@@ -38,6 +31,7 @@
   home.homeDirectory = "/home/fhraze";
 
   home.stateVersion = "23.11";
+  nixpkgs.config.allowUnfree = true;
 
   home.packages = [
     # << Fun >>
@@ -52,9 +46,11 @@
     #pkgs.sl
 
     # << Tools >>
+    #pkgs.clinfo
     pkgs.gh
     pkgs.scrcpy
-    pkgs.peazip
+    #pkgs.peazip
+    pkgs.libarchive
     pkgs.droidcam
     pkgs.qpwgraph
     pkgs.bitwarden
@@ -62,6 +58,9 @@
     pkgs.pavucontrol
     # System fetch tool
     pkgs.owofetch
+    pkgs.xfce.thunar
+    pkgs.gvfs
+    pkgs.rtorrent
 
     # << Dev Tools >>
     pkgs.mono # Open-source .NET framework for C#
@@ -73,9 +72,10 @@
     pkgs.typescript
     pkgs.nodePackages.nodejs
     # Rust...
-    pkgs.rustc
-    pkgs.cargo
-    pkgs.rustfmt
+    pkgs.rustup
+    #pkgs.rustc
+    #pkgs.cargo
+    #pkgs.rustfmt
     #pkgs.rustpython
 
     # << Social >>
@@ -90,15 +90,17 @@
     pkgs.davinci-resolve
     pkgs.tenacity
     pkgs.blender
+    #pkgs.blender-hip
     pkgs.krita
     pkgs.gimp-with-plugins
-    pkgs.rustdesk
+    #pkgs.rustdesk
 
     # << Media Viewers/Players >>
     pkgs.mpv
     pkgs.viewnior
 
     # << Gaming >>
+    pkgs.steam
     pkgs.lutris
     pkgs.heroic
     pkgs.gogdl # GOG dl module for Heroic
@@ -113,15 +115,14 @@
     # << Proton >>
     pkgs.protontricks
     pkgs.protonup-qt
-  ];
 
-  fonts.packages = with pkgs; [
-    (nerdfonts.override { fonts = [ "Hack" ]; }) # hack nerd font
-    twemoji-color-font # emoji
-    hachimarupop # japanese font
-    hannom # chinese font
-    baekmuk-ttf # korean font
-    vazir-fonts # persian font
+    # << Fonts >>
+    (pkgs.nerdfonts.override { fonts = [ "Hack" ]; }) # hack nerd font
+    pkgs.twemoji-color-font # emojis
+    pkgs.hachimarupop # japanese font
+    pkgs.hannom # chinese font
+    pkgs.baekmuk-ttf # korean font
+    pkgs.vazir-fonts # persian font
   ];
 
   home.file = {
@@ -135,10 +136,4 @@
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
-
-  # Keymap
-  services.xserver = {
-    xkb.layout = "br";
-    xkb.variant = "";
-  };
 }
