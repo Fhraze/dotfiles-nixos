@@ -1,6 +1,11 @@
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 
 {
+  # << Hyprland bruhh >>
+  programs.hyprland = {
+    enable = true;
+    #package = inputs.hyprland.packages.nixpkgs.legacyPackages."x86_64-linux".hyprland;
+  };
   imports =
     [
       # << Hardware Configuration >>

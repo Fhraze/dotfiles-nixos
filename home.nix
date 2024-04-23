@@ -13,7 +13,8 @@
       ./modules/service/syncthing.nix
 
       # << Window Managers >>
-      ./modules/wm/hyprland.nix
+      #./modules/wm/hyprland.nix
+      ./modules/wm/hyprland-hm.nix
 
       # << Desktop Environments >>
       #./modules/de/gnome.nix
