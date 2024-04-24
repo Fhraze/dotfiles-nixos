@@ -3,21 +3,16 @@
 pkgs.writeShellScriptBin "kb-switch" ''
   cd ~/.config/hypr/
 
-  KBLAYOUTS=('br' 'us')
   CURR_KBLAYOUT=`cat CURR_KBLAYOUT.variable`
-
-  if (( $CURR_KBLAYOUT < ${#KBLAYOUTS[@]} )); then
-    CURR_KBLAYOUT=$(( $CURR_KBLAYOUT + 1 ))
+  if [[ $CURR_KBLAYOUT == "br" ]]; then	
     sed -i '1d' CURR_KBLAYOUT.variable
-    echo $CURR_KBLAYOUT >> CURR_KBLAYOUT.variable
+    echo "us" >> CURR_KBLAYOUT.variable
+    hyprctl keyword input:kb_layout "us"
+    notify-send "Keyboard layout changed to 'us'!"
   else
-    CURR_KBLAYOUT=1
     sed -i '1d' CURR_KBLAYOUT.variable
-    echo 1 >> CURR_KBLAYOUT.variable
+    echo "br" >> CURR_KBLAYOUT.variable
+    hyprctl keyword input:kb_layout "br"
+    notify-send "Keyboard layout changed to 'br'!"
   fi
-
-  CURR_KBLAYOUT=$(( $CURR_KBLAYOUT - 1 ))
-
-  hyprctl keyword input:kb_layout ${KBLAYOUTS[$CURR_KBLAYOUT]}
-  notify-send "Keyboard layout changed to '${KBLAYOUTS[CURR_KBLAYOUT]}'!"
 ''

@@ -1,0 +1,39 @@
+hyprland> [118/164] Compiling C++ object src/Hyprland.p/managers_TokenManager.cpp.o
+hyprland> FAILED: src/Hyprland.p/managers_TokenManager.cpp.o
+hyprland> g++ -Isrc/Hyprland.p -Isrc -I../src -Iprotocols -I/nix/store/xwi507pfnpqqsvha16lm1i39ljgk17hr-wayland-1.22.0-dev/include -I/nix/store/9lq5jxvs1qja314ahz33r6rmb5mzz767-libglvnd-1.7.0-dev/include -I/nix/store/bgfc0smkqy25blbadmh0kw88jxwbq900-libinput-1.25.0-dev/include -I/nix/store/biwxq5ry3r9dygys0si8m72kz0s61svn-systemd-minimal-libs-255.4-dev/include -I/nix/store/95pnxydxyi5phplf0z6ivm20jj7yh8db-libxkbcommon-1.5.0-dev/include -I/nix/store/qj9jph66h40v0gx5b590bj2shy7ql9fp-mesa-24.0.5-dev/include -I/nix/store/bnanzp44z8gxxqcm2b9sw4wpymnlfqpp-libdrm-2.4.120-dev/include -I/nix/store/bnanzp44z8gxxqcm2b9sw4wpymnlfqpp-libdrm-2.4.120-dev/include/libdrm -I/nix/store/ldz76qcgv1ic8s8jlvhcyw51s7pzl2bx-pixman-0.43.4/include/pixman-1 -I/nix/store/8kf4gx0629r7zcdmcjd095b6r6fa88jc-seatd-0.8.0-dev/include -I/nix/store/l9ig3x3xkbyxgyx5cs1rg5fn171rnfvk-vulkan-headers-1.3.280.0/include -I/nix/store/gmjf09q9mxpqij5q6l5nvr7k8zb34pfb-libxcb-1.16-dev/include -I/nix/store/bvs16qbn4481b23fsvkyawnprg2gk04m-xcb-util-errors-1.0.1-dev/include -I/nix/store/7671r79q1fj40yvni5qgw2b33q426391-xcb-util-renderutil-0.3.10-dev/include -I/nix/store/0jagcf2m8f0g4warf2dkfpb8m0lpnqzl-xcb-util-wm-0.4.2-dev/include -I/nix/store/c3wzgv8zakd68vfnwhzxk38kazdbi376-libliftoff-0.4.1/include -I/nix/store/7yfblbn27xx50h2gqr8053540r4m10jv-libdisplay-info-0.1.1/include -I/nix/store/v313x9n8zsf0xjc675hpxbqv8lw466lg-wlroots-hyprland-2024-04-21_5c1d51c/include -I/nix/store/hl1zm53nn45c7wy5d2168xp99ma6fxgf-cairo-1.18.0-dev/include/cairo -I/nix/store/hyycb5lggv29z1h4kc4662wlsdcdq1y7-freetype-2.13.2-dev/include/freetype2 -I/nix/store/hyycb5lggv29z1h4kc4662wlsdcdq1y7-freetype-2.13.2-dev/include -I/nix/store/8dx3fbbmx8c4y2czccrpm2gf2pbk91xg-hyprcursor-0.pre+date=2024-04-20_cab4746-dev/include -I/nix/store/9f5c6w9pg7rcpf9mbfli19gvlzxam2rd-hyprlang-0.pre+date=2024-04-14_78fcaa2-dev/include -I/nix/store/smignixk7nzxzz51fklq7mqac3bk7n5a-udis86-unstable-2022-10-13-dev/include -I/nix/store/hfa0jcamap6fyq1jlfxvn0dhaa3yrv8y-glib-2.78.4-dev/include -I/nix/store/hfa0jcamap6fyq1jlfxvn0dhaa3yrv8y-glib-2.78.4-dev/include/glib-2.0 -I/nix/store/77b9knzn0ai7jdvq74qkhahz001pc3w5-glib-2.78.4/lib/glib-2.0/include -I/nix/store/b0ylwxvkvmqfkabiz18n14l4hsfxri5n-pango-1.51.2-dev/include/pango-1.0 -I/nix/store/h2a0hvrmfzfxfggyfjgwnl3lmdhynm71-harfbuzz-8.4.0-dev/include/harfbuzz -fdiagnostics-color=always -D_GLIBCXX_ASSERTIONS=1 -fpch-preprocess -include pch.hpp -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -O3 -Wno-unused-parameter -Wno-unused-value -Wno-missing-field-initializers -Wno-narrowing -DHAS_EXECINFO -DUSES_SYSTEMD -std=c++23 -pthread -DWLR_USE_UNSTABLE -MD -MQ src/Hyprland.p/managers_TokenManager.cpp.o -MF src/Hyprland.p/managers_TokenManager.cpp.o.d -o src/Hyprland.p/managers_TokenManager.cpp.o -c ../src/managers/TokenManager.cpp
+hyprland> ../src/managers/TokenManager.cpp:2:10: fatal error: uuid/uuid.h: No such file or directory
+hyprland>     2 | #include <uuid/uuid.h>
+hyprland>       |          ^~~~~~~~~~~~~
+hyprland> compilation terminated.
+hyprland> [119/164] Compiling C++ object src/Hyprland.p/managers_LayoutManager.cpp.o
+hyprland> [120/164] Compiling C++ object src/Hyprland.p/managers_ProtocolManager.cpp.o
+hyprland> [121/164] Compiling C++ object src/Hyprland.p/managers_SessionLockManager.cpp.o
+hyprland> [122/164] Compiling C++ object src/Hyprland.p/managers_KeybindManager.cpp.o
+hyprland> ../src/managers/KeybindManager.cpp: In static member function 'static uint64_t CKeybindManager::spawnRaw(std::string)':
+hyprland> ../src/managers/KeybindManager.cpp:831:14: warning: ignoring return value of 'ssize_t write(int, const void*, size_t)' declared with attribute 'warn_unused_result' [-Wunused-result]
+hyprland>   831 |         write(socket[1], &grandchild, sizeof(grandchild));
+hyprland>       |         ~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+hyprland> ../src/managers/KeybindManager.cpp:838:9: warning: ignoring return value of 'ssize_t read(int, void*, size_t)' declared with attribute 'warn_unused_result' [-Wunused-result]
+hyprland>   838 |     read(socket[0], &grandchild, sizeof(grandchild));
+hyprland>       |     ~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+hyprland> [123/164] Compiling C++ object src/Hyprland.p/managers_ThreadManager.cpp.o
+hyprland> ninja: build stopped: subcommand failed.
+error: builder for '/nix/store/hl332mq06axb9998lc361bbp1r408idf-hyprland-0.39.1+date=2024-04-23_5262292.drv' failed with exit code 1;
+       last 10 log lines:
+       > [122/164] Compiling C++ object src/Hyprland.p/managers_KeybindManager.cpp.o
+       > ../src/managers/KeybindManager.cpp: In static member function 'static uint64_t CKeybindManager::spawnRaw(std::string)':
+       > ../src/managers/KeybindManager.cpp:831:14: warning: ignoring return value of 'ssize_t write(int, const void*, size_t)' declared with attribute 'warn_unused_result' [-Wunused-result]
+       >   831 |         write(socket[1], &grandchild, sizeof(grandchild));
+       >       |         ~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+       > ../src/managers/KeybindManager.cpp:838:9: warning: ignoring return value of 'ssize_t read(int, void*, size_t)' declared with attribute 'warn_unused_result' [-Wunused-result]
+       >   838 |     read(socket[0], &grandchild, sizeof(grandchild));
+       >       |     ~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+       > [123/164] Compiling C++ object src/Hyprland.p/managers_ThreadManager.cpp.o
+       > ninja: build stopped: subcommand failed.
+       For full logs, run 'nix log /nix/store/hl332mq06axb9998lc361bbp1r408idf-hyprland-0.39.1+date=2024-04-23_5262292.drv'.
+error: 1 dependencies of derivation '/nix/store/5r8h5zl2ijfm7n8zrcfadjbr8wl16kg3-activation-script.drv' failed to build
+error: 1 dependencies of derivation '/nix/store/61q0z7dbpc1qq858198qqh255za5bafg-desktops.drv' failed to build
+error: 1 dependencies of derivation '/nix/store/9cg0a3grar0kbb0mvnajmgvf0d1crzzj-home-manager-path.drv' failed to build
+error: 1 dependencies of derivation '/nix/store/b2d9wckwvpdnfy444pzqcf9c1f503bqq-system-path.drv' failed to build
+error: 1 dependencies of derivation '/nix/store/d92v94dcc8mcdmba2ivrv4zqc769nnq0-xdg-desktop-portal-hyprland-1.3.1.drv' failed to build
+error: 1 dependencies of derivation '/nix/store/ar92y0pnxyr68ki8nffkdwddqip531pp-nixos-system-nixos-24.05.20240421.6143fc5.drv' failed to build

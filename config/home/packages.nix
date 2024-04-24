@@ -24,15 +24,22 @@ in {
     xfce.thunar
     gvfs
     qbittorrent
+    hyprnome
+
+    # << Dev >>
+    libexecinfo
     mono
+    #epoll-shim
+    ninja
     clang
+    cmake
     libgcc
     jdk
     lua
     python3
     typescript
     nodePackages.nodejs
-    hyprnome
+
     # << Office >>
     obsidian
     libsForQt5.okular
@@ -89,7 +96,7 @@ in {
     twemoji-color-font
     hachimarupop # japanese
     hannom # chinese
-    bekmuk-ttf # korean
+    baekmuk-ttf # korean
     vazir-fonts # persian
     # Import Scripts
     (import ./../scripts/emopicker9000.nix { inherit pkgs; })
@@ -104,8 +111,8 @@ in {
     (import ./../scripts/rofi-launcher.nix { inherit pkgs; })
     (import ./../scripts/screenshootin.nix { inherit pkgs; })
     (import ./../scripts/list-hypr-bindings.nix { inherit pkgs; inherit host; })
-    (import ./../scripts/kb-switch.nix { inherit pkgs; inherit host; })
-    (import ./../scripts/record-script.nix { inherit pkgs; inherit host; })
+    (import ./../scripts/kb-switch.nix { inherit pkgs; })
+    (import ./../scripts/record-script.nix { inherit pkgs; })
   ];
 
   programs.gh.enable = true;

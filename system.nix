@@ -36,7 +36,7 @@ in {
     LC_TIME = "${theLCVariables}";
   };
 
-  console.keyMap = "${theKBDLayout}";
+  console.keyMap = "us"; #"${theKBDLayout}";
 
   # Define a user account.
   users = {
