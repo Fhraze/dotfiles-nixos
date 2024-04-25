@@ -1,3 +1,5 @@
+# ⚠️NOT WORKING!! - ABANDONED⚠️
+
 <div align="center">
 
 ## ZaneyOS (Fhraze fork) 🟰 Best ❄️ NixOS Configs
